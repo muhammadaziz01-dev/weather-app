@@ -320,12 +320,17 @@ body {
   background: linear-gradient(60deg, rgba(247, 247, 246, 0.9781162465) 12%, rgba(124, 122, 122, 0.9136029412) 66%);
 }
 
+.darc-body {
+  background: rgb(36, 34, 34) !important;
+  background: linear-gradient(74deg, rgba(36, 34, 34, 0.6194852941) 0%, rgba(11, 11, 11, 0.9724264706) 47%) !important;
+}
+
 ul {
   list-style: none;
 }
 
 .container {
-  max-width: 1380px;
+  max-width: 1280px;
   margin: 0 auto;
   width: 100%;
   padding: 0 10px;
@@ -369,7 +374,7 @@ footer {
 
 #intro {
   width: 100%;
-  padding: 100px 0px;
+  padding: 40px 0px;
 }
 #intro .intro--wrapper {
   display: flex;
@@ -394,7 +399,7 @@ footer {
   border: 1px solid #000;
   position: relative;
 }
-#intro .intro--wrapper .intro--top .darcmod--btn button {
+#intro .intro--wrapper .intro--top .darcmod--btn--darc {
   display: block;
   width: 30px;
   height: 30px;
@@ -402,6 +407,21 @@ footer {
   background: #1a1919;
   border: none;
   cursor: pointer;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+#intro .intro--wrapper .intro--top .darcmod--btn--light {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1a1919;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 4px;
 }
 #intro .intro--wrapper .intro--top .darcmod p {
   font-size: 18px;
@@ -452,7 +472,7 @@ footer {
   justify-content: space-between;
 }
 #intro .intro--wrapper .intro--centr--crdleft {
-  width: 510px;
+  width: 410px;
   height: 330px;
   background: rgb(217, 217, 217);
   border-radius: 20px;
@@ -547,11 +567,12 @@ footer {
   justify-content: space-between;
 }
 #intro .intro--wrapper .intro--botton--cardleft {
-  width: 414px;
+  width: 350px;
+  height: 400px;
   background: rgb(217, 217, 217);
   border-radius: 20px;
   box-shadow: 4px 4px 15px #191919;
-  padding: 10px 20px;
+  padding: 10px 30px;
 }
 #intro .intro--wrapper .intro--botton--cardleft h2 {
   text-align: center;
@@ -604,7 +625,7 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  width: 130px;
+  width: 110px;
   border-radius: 35px;
   padding: 15px 5px;
   background: rgb(255, 232, 178);
@@ -625,11 +646,18 @@ footer {
   line-height: 30px;
   font-weight: 700;
 }
-#intro .intro--wrapper .intro--botton--cardright ul li:nth-child(4) {
+#intro .intro--wrapper .intro--botton--cardright ul li:nth-child(1) {
   background: rgb(252, 247, 236);
   background: linear-gradient(0deg, rgba(252, 247, 236, 0.9781162465) 12%, rgba(75, 73, 139, 0.9136029412) 66%);
 }
 #intro .intro--wrapper .intro--botton--cardright ul li:nth-child(5) {
   background: rgb(252, 247, 236);
   background: linear-gradient(0deg, rgba(252, 247, 236, 0.9781162465) 12%, rgba(75, 73, 139, 0.9136029412) 66%);
+}
+#intro .intro--wrapper .intro--botton--cardright ul li:nth-child(6) {
+  background: rgb(252, 247, 236);
+  background: linear-gradient(0deg, rgba(252, 247, 236, 0.9781162465) 12%, rgba(75, 73, 139, 0.9136029412) 66%);
+}
+#intro .intro--wrapper .intro--botton--cardright ul .darc-li {
+  background: rgb(55, 54, 54) !important;
 }/*# sourceMappingURL=style.css.map */

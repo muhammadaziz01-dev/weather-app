@@ -1,6 +1,6 @@
 #intro{
     width: 100%;
-    padding: 100px 0px;
+    padding: 40px 0px;
 
     .intro--wrapper{
 
@@ -26,7 +26,7 @@
                     border: 1px solid #000;
                     position: relative;
 
-                    button{
+                    &--darc{
                         display: block;
                         width: 30px;
                         height: 30px;
@@ -34,6 +34,22 @@
                         background: #1a1919;
                         border: none;
                         cursor: pointer;
+                        position: absolute;
+                        top: 4px;
+                        left: 4px;
+                    }
+
+                    &--light{
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background: #1a1919;
+                        border: none;
+                        cursor: pointer;
+                        position: absolute;
+                        top: 4px;
+                        right: 4px;
                     }
                 }
                  p{
@@ -93,7 +109,7 @@
             justify-content: space-between;
 
             &--crdleft{
-                width: 510px;
+                width: 410px;
                 height: 330px;
                 background: rgba(217, 217, 217, 1);
                 border-radius: 20px;
@@ -206,11 +222,12 @@
 
 
             &--cardleft{
-                width: 414px;
+                width: 350px;
+                height: 400px;
                 background: rgba(217, 217, 217, 1);
                 border-radius: 20px;
                 box-shadow: 4px 4px 15px #191919;
-                padding: 10px 20px;
+                padding: 10px 30px;
 
                 h2{
                     text-align: center;
@@ -247,7 +264,7 @@
 
             &--cardright{
                 width: 850px;
-                height: 400px   ;
+                height: 400px;
                 background: rgba(217, 217, 217, 1);
                 border-radius: 20px;
                 box-shadow: 4px 4px 15px #191919;
@@ -273,7 +290,7 @@
                         flex-direction: column;
                         align-items: center;
                         gap: 5px;
-                        width: 130px;
+                        width: 110px;
                         border-radius: 35px;
                         padding: 15px 5px;
                         background: rgb(255,232,178);
@@ -298,13 +315,21 @@
                         }
                     }
 
-                    li:nth-child(4){
+                    li:nth-child(1){
                         background: rgb(252,247,236);
                         background: linear-gradient(0deg, rgba(252,247,236,0.9781162464985994) 12%, rgba(75,73,139,0.9136029411764706) 66%);
                     }
                     li:nth-child(5){
                         background: rgb(252,247,236);
                         background: linear-gradient(0deg, rgba(252,247,236,0.9781162464985994) 12%, rgba(75,73,139,0.9136029411764706) 66%);
+                    }
+                    li:nth-child(6){
+                        background: rgb(252,247,236);
+                        background: linear-gradient(0deg, rgba(252,247,236,0.9781162464985994) 12%, rgba(75,73,139,0.9136029411764706) 66%);
+                    }
+
+                    .darc-li{
+                        background: rgba(55, 54, 54, 1) !important;
                     }
                 }
             }

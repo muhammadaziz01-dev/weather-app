@@ -10,7 +10,12 @@
 body{
     // background-repeat: no-repeat;
     background: rgb(247,247,246);
-background: linear-gradient(60deg, rgba(247,247,246,0.9781162464985994) 12%, rgba(124,122,122,0.9136029411764706) 66%);
+    background: linear-gradient(60deg, rgba(247,247,246,0.9781162464985994) 12%, rgba(124,122,122,0.9136029411764706) 66%);
+}
+
+.darc-body{
+    background: rgb(36,34,34) !important;
+    background: linear-gradient(74deg, rgba(36,34,34,0.6194852941176471) 0%, rgba(11,11,11,0.9724264705882353) 47%) !important;   
 }
 
 ul{
