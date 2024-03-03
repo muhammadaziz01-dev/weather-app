@@ -89,14 +89,9 @@ const locationBtn = document.querySelector('#location');
 //--------------------------Globol veraybl---------------
 const URL = "https://api.weatherapi.com/v1";
 let key = "b95528f2643349479a4100211240103";
-window.navigator.geolocation.getCurrentPosition((position)=>{
-    let lat = position.coords.latitude;
-    let lon =position.coords.longitude;
-    let result =`${lat},${lon}`;
-    getPost(result);
-    getPstDays(result);
-    getPossTime(result);
-})
+
+
+
 
 
 
@@ -153,15 +148,19 @@ serchInput.addEventListener('keyup' , (e)=>{
 
 //------LOCATION CITY-----------
 locationBtn.addEventListener('click',()=>{
-  window.navigator.geolocation.getCurrentPosition((position)=>{
-    let lat = position.coords.latitude;
-    let lon =position.coords.longitude;
-    let result =`${lat},${lon}`;
-    getPost(result);
-    getPstDays(result);
-    getPossTime(result);
-  })
+    locationData()
 })
+
+function locationData() {
+    window.navigator.geolocation.getCurrentPosition((position)=>{
+        let lat = position.coords.latitude;
+        let lon =position.coords.longitude;
+        let result =`${lat},${lon}`;
+        getPost(result);
+        getPstDays(result);
+        getPossTime(result);
+    })
+}locationData()
 //------------------------------
 
 
