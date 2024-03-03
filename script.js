@@ -81,13 +81,22 @@ const dayPagodImg6 = document.querySelector('#day-pagod-img6');
 const dayC6 = document.querySelector('#day-c6');
 const dayImg6 = document.querySelector('#day-img6');
 const dayWind6 = document.querySelector('#day-wind6');
+//-----------------------
 
+const locationBtn = document.querySelector('#location');
 
 
 //--------------------------Globol veraybl---------------
 const URL = "https://api.weatherapi.com/v1";
 let key = "b95528f2643349479a4100211240103";
-
+window.navigator.geolocation.getCurrentPosition((position)=>{
+    let lat = position.coords.latitude;
+    let lon =position.coords.longitude;
+    let result =`${lat},${lon}`;
+    getPost(result);
+    getPstDays(result);
+    getPossTime(result);
+})
 
 
 
@@ -134,10 +143,26 @@ serchInput.addEventListener('keyup' , (e)=>{
      getPost(cityName)
      getPstDays(cityName)
      getPossTime(cityName)
+     setTimeout(()=>{
+        e.target.value='';
+     },2500)
    }
 })
 //-----------------------------------
 
+
+//------LOCATION CITY-----------
+locationBtn.addEventListener('click',()=>{
+  window.navigator.geolocation.getCurrentPosition((position)=>{
+    let lat = position.coords.latitude;
+    let lon =position.coords.longitude;
+    let result =`${lat},${lon}`;
+    getPost(result);
+    getPstDays(result);
+    getPossTime(result);
+  })
+})
+//------------------------------
 
 
 
@@ -186,7 +211,7 @@ async function getPost(cityName = 'Tashkent') {
     }catch(err){
         alert(err);
     }
-}getPost()
+}
 
 //--------------------------------------------------------------------------
 
@@ -219,7 +244,7 @@ async function getPstDays(cityName = 'Tashkent', day = 5) {
     }catch(err){
         alert(err);
     }
-}getPstDays()
+}
 
 //-----------------------------------------------------------
 
@@ -230,54 +255,54 @@ async function getPossTime(cityName = 'Tashkent', day = 1){
         let respons = await fetch(`${URL}/forecast.json?key=${key}&days=${day}&q=${cityName}`);
         let result = await respons.json();
         //---------04:00---------vaqitdagi holat
-        dayTaim1.textContent= `${result.forecast.forecastday[0].hour[4].time.slice(11,16)}`;
-        dayPagodImg1.src = `${result.forecast.forecastday[0].hour[4].condition.icon}`;
-        dayC1.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[4].temp_c))} °C`;
-        dayImg1.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[4].wind_degree}deg);`;
-        dayWind1.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[4].wind_kph)) }km/h`;
+        dayTaim1.textContent= `${result.forecast.forecastday[0].hour[3].time.slice(11,16)}`;
+        dayPagodImg1.src = `${result.forecast.forecastday[0].hour[3].condition.icon}`;
+        dayC1.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[3].temp_c))} °C`;
+        dayImg1.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[3].wind_degree}deg);`;
+        dayWind1.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[3].wind_kph)) }km/h`;
 
         //---------08:00---------vaqitdagi holat
-        dayTaim2.textContent= `${result.forecast.forecastday[0].hour[8].time.slice(11,16)}`;
-        dayPagodImg2.src = `${result.forecast.forecastday[0].hour[8].condition.icon}`;
-        dayC2.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[8].temp_c))} °C`;
-        dayImg2.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[8].wind_degree}deg);`;
-        dayWind2.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[8].wind_kph)) }km/h`;
+        dayTaim2.textContent= `${result.forecast.forecastday[0].hour[7].time.slice(11,16)}`;
+        dayPagodImg2.src = `${result.forecast.forecastday[0].hour[7].condition.icon}`;
+        dayC2.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[7].temp_c))} °C`;
+        dayImg2.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[7].wind_degree}deg);`;
+        dayWind2.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[7].wind_kph)) }km/h`;
 
         //---------12:00---------vaqitdagi holat
-        dayTaim3.textContent= `${result.forecast.forecastday[0].hour[12].time.slice(11,16)}`;
-        dayPagodImg3.src = `${result.forecast.forecastday[0].hour[12].condition.icon}`;
-        dayC3.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[12].temp_c))} °C`;
-        dayImg3.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[12].wind_degree}deg);`;
-        dayWind3.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[12].wind_kph)) }km/h`;
+        dayTaim3.textContent= `${result.forecast.forecastday[0].hour[11].time.slice(11,16)}`;
+        dayPagodImg3.src = `${result.forecast.forecastday[0].hour[11].condition.icon}`;
+        dayC3.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[11].temp_c))} °C`;
+        dayImg3.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[11].wind_degree}deg);`;
+        dayWind3.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[11].wind_kph)) }km/h`;
 
 
         //---------16:00---------vaqitdagi holat
-        dayTaim4.textContent= `${result.forecast.forecastday[0].hour[16].time.slice(11,16)}`;
-        dayPagodImg4.src = `${result.forecast.forecastday[0].hour[16].condition.icon}`;
-        dayC4.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[16].temp_c))} °C`;
-        dayImg4.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[16].wind_degree}deg);`;
-        dayWind4.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[16].wind_kph)) }km/h`;
+        dayTaim4.textContent= `${result.forecast.forecastday[0].hour[15].time.slice(11,16)}`;
+        dayPagodImg4.src = `${result.forecast.forecastday[0].hour[15].condition.icon}`;
+        dayC4.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[15].temp_c))} °C`;
+        dayImg4.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[15].wind_degree}deg);`;
+        dayWind4.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[15].wind_kph)) }km/h`;
 
 
         //---------20:00---------vaqitdagi holat
-        dayTaim5.textContent= `${result.forecast.forecastday[0].hour[20].time.slice(11,16)}`;
-        dayPagodImg5.src = `${result.forecast.forecastday[0].hour[20].condition.icon}`;
-        dayC5.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[20].temp_c))} °C`;
-        dayImg5.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[20].wind_degree}deg);`;
-        dayWind5.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[20].wind_kph)) }km/h`;
+        dayTaim5.textContent= `${result.forecast.forecastday[0].hour[19].time.slice(11,16)}`;
+        dayPagodImg5.src = `${result.forecast.forecastday[0].hour[19].condition.icon}`;
+        dayC5.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[19].temp_c))} °C`;
+        dayImg5.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[19].wind_degree}deg);`;
+        dayWind5.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[19].wind_kph)) }km/h`;
 
 
         //---------00:00---------vaqitdagi holat
-        dayTaim6.textContent= `${result.forecast.forecastday[0].hour[0].time.slice(11,16)}`;
-        dayPagodImg6.src = `${result.forecast.forecastday[0].hour[0].condition.icon}`;
-        dayC6.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[0].temp_c))} °C`;
-        dayImg6.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[0].wind_degree}deg);`;
-        dayWind6.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[0].wind_kph)) }km/h`;
+        dayTaim6.textContent= `${result.forecast.forecastday[0].hour[23].time.slice(11,16)}`;
+        dayPagodImg6.src = `${result.forecast.forecastday[0].hour[23].condition.icon}`;
+        dayC6.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[23].temp_c))} °C`;
+        dayImg6.style.cssText = `transform: rotate(${result.forecast.forecastday[0].hour[23].wind_degree}deg);`;
+        dayWind6.textContent = `${Number.parseInt(+(result.forecast.forecastday[0].hour[23].wind_kph)) }km/h`;
 
     }catch(err){
         alert(err);
     }
-}getPossTime()
+}
 
 //-----------------------------------
 

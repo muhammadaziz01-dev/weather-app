@@ -94,11 +94,12 @@
                 justify-content: center;
                 gap: 12px;
                 cursor: pointer;
+                border: none;
 
                 p{
                     font-style: 24px;
                     font-weight: 800;
-                    color: #FFF;
+                    color: #FFF !important;
                 }
             }
         }

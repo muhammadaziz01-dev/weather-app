@@ -460,11 +460,12 @@ footer {
   justify-content: center;
   gap: 12px;
   cursor: pointer;
+  border: none;
 }
 #intro .intro--wrapper .intro--top .location--wrap p {
   font-style: 24px;
   font-weight: 800;
-  color: #FFF;
+  color: #FFF !important;
 }
 #intro .intro--wrapper .intro--centr {
   display: flex;
