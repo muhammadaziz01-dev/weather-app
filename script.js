@@ -11,6 +11,8 @@ const humidity = document.querySelector('#humidity');
 const pressure = document.querySelector('#pressure');
 const windSpeed = document.querySelector('#wind-speed');
 const uv = document.querySelector('#uv');
+const kunChiqish =document.querySelector('#kun-chiqish');
+const kunBotish =document.querySelector('#kun-botish');
 //---darcmod------
 const serchInput = document.querySelector('#serch-input');
 const darcmodBtn = document.querySelector('#darcmod-button');
@@ -253,6 +255,10 @@ async function getPossTime(cityName = 'Tashkent', day = 1){
     try{
         let respons = await fetch(`${URL}/forecast.json?key=${key}&days=${day}&q=${cityName}`);
         let result = await respons.json();
+        //-------kun chiqishi vs botishi-------
+        kunChiqish.textContent= `${result.forecast.forecastday[0].astro.sunrise}`;
+        kunBotish.textContent= `${result.forecast.forecastday[0].astro.sunset}`;
+
         //---------04:00---------vaqitdagi holat
         dayTaim1.textContent= `${result.forecast.forecastday[0].hour[3].time.slice(11,16)}`;
         dayPagodImg1.src = `${result.forecast.forecastday[0].hour[3].condition.icon}`;
